@@ -1,4 +1,5 @@
 class PackageCollection < ApplicationRecord
-  has_many :groups, as: :owner, dependent: :destroy
-  has_many :packages, through: :groups, source: :item, source_type: "Package"
+  has_one :group, as: :owner, dependent: :destroy
+  has_many :group_items, through: :group
+  has_many :packages, through: :group_items, source: :item, source_type: "Package"
 end

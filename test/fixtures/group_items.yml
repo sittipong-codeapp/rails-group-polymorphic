@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  group: one
+  item: one
+  item_type: Item
+  sequence: 1
+
+two:
+  group: two
+  item: two
+  item_type: Item
+  sequence: 1

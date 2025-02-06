@@ -18,13 +18,18 @@ collection_x = PackageCollection.create(name: 'PackageCollection_X')
 collection_y = PackageCollection.create(name: 'PackageCollection_Y')
 collection_z = PackageCollection.create(name: 'PackageCollection_Z')
 
-# Associate Packages with PackageCollections
-Group.create(owner: collection_x, item: package_a)
-Group.create(owner: collection_x, item: package_b)
+# Create Groups
+group_x = Group.create(owner: collection_x)
+group_y = Group.create(owner: collection_y)
+group_z = Group.create(owner: collection_z)
 
-Group.create(owner: collection_y, item: package_b)
-Group.create(owner: collection_y, item: package_c)
+# Associate Packages with PackageCollections with sequence
+GroupItem.create(group: group_x, item: package_a, sequence: 1)
+GroupItem.create(group: group_x, item: package_b, sequence: 2)
 
-Group.create(owner: collection_z, item: package_a)
-Group.create(owner: collection_z, item: package_b)
-Group.create(owner: collection_z, item: package_c)
+GroupItem.create(group: group_y, item: package_b, sequence: 1)
+GroupItem.create(group: group_y, item: package_c, sequence: 2)
+
+GroupItem.create(group: group_z, item: package_a, sequence: 1)
+GroupItem.create(group: group_z, item: package_b, sequence: 2)
+GroupItem.create(group: group_z, item: package_c, sequence: 3)

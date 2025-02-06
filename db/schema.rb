@@ -10,15 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_06_065437) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_06_072035) do
+  create_table "group_items", force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.integer "sequence"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_items_on_group_id"
+    t.index ["item_type", "item_id"], name: "index_group_items_on_item"
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string "owner_type", null: false
     t.integer "owner_id", null: false
-    t.string "item_type", null: false
-    t.integer "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["item_type", "item_id"], name: "index_groups_on_item"
     t.index ["owner_type", "owner_id"], name: "index_groups_on_owner"
   end
 
@@ -33,4 +41,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_02_06_065437) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "group_items", "groups"
 end
