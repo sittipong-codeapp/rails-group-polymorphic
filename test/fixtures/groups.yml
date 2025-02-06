@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: one
+  owner_type: Owner
+  item: one
+  item_type: Item
+
+two:
+  owner: two
+  owner_type: Owner
+  item: two
+  item_type: Item
